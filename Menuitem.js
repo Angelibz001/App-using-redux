@@ -1,34 +1,49 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React from "react";
+import styled from "styled-components/native";
+import { Animated, TouchableOpacity, Dimensions } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-const Logo = props => (
+const Menuitem = props => (
 <Container>
-    <Image source = {props.image} resizeMode = 'contain'/>
-    <Text>{props.text}</Text>
-</Container>
-);
+    <IconView>
+        <Ionicons name= {props.icon} size= {24} color = "blue" />
+    </IconView>
+    <Content>
+        <Title>{props.title}</Title>
+        <Text>{props.text}</Text>
+    </Content>
 
-export default Logo;
+</Container>
+)
+
+export default Menuitem
 
 const Container = styled.View`
 flex-direction: row;
-background: white;
-height: 60px;
-padding: 12px 16px 12px;
-border-radius: 10px;
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+margin: 15px 0;
+
+`;
+const IconView = styled.View`
+width: 32px;
+height: 32px;
+justify-content: center;
 align-items: center;
-margin: 0 8px;
+
 `;
 
-const Image = styled.Image`
-width: 36px;
-height: 36px;
+const Content = styled.View`
+padding-left:20px;
+`;
 
+const Title = styled.Text`
+color: orchid;
+font-size: 24px;
+font-weight: 600;
 `;
 
 const Text = styled.Text`
+color: orchid;
 font-weight: 600;
-font-size: 17px;
-margin-left: 8px;
+opacity: 0.6;
+margin-top: 5px;
 `;
